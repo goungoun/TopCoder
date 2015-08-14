@@ -11,8 +11,15 @@ public class Taro {
 			int from=fromID[i];
 			int to=toID[i];
 			
-			bottles[to]=bottles[to]+bottles[from];
-			bottles[from]=0;
+			if (capacities[to] >= bottles[to]+bottles[from])
+			{
+				bottles[to]=bottles[to]+bottles[from];
+				bottles[from]=0;
+			} else
+			{
+				bottles[from]=bottles[to]+bottles[from]-capacities[to];
+				bottles[to]=capacities[to];
+			}
 		}
 		return bottles;
 	}

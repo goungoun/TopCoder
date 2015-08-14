@@ -12,7 +12,6 @@ public class TaroTest {
 
 	@Test
 	public void test() {
-		//fail("Not yet implemented");
 		Taro taro = new Taro();
 		
 		// input
@@ -29,7 +28,6 @@ public class TaroTest {
 
 	@Test
 	public void test_1() {
-		//fail("Not yet implemented");
 		Taro taro = new Taro();
 		
 		// input
@@ -46,7 +44,6 @@ public class TaroTest {
 	
 	@Test
 	public void test_2() {
-		//fail("Not yet implemented");
 		Taro taro = new Taro();
 		
 		// input
@@ -63,7 +60,6 @@ public class TaroTest {
 	
 	@Test
 	public void test_3() {
-		//fail("Not yet implemented");
 		Taro taro = new Taro();
 		
 		// input
@@ -80,7 +76,6 @@ public class TaroTest {
 	
 	@Test
 	public void test_4() {
-		//fail("Not yet implemented");
 		Taro taro = new Taro();
 		
 		// input
