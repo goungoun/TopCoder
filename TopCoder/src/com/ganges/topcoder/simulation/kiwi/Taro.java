@@ -10,16 +10,10 @@ public class Taro {
 		{	
 			int from=fromID[i];
 			int to=toID[i];
+			int sum=bottles[to]+bottles[from];
 			
-			if (capacities[to]>=bottles[to]+bottles[from])
-			{
-				bottles[to]=bottles[to]+bottles[from];
-				bottles[from]=0;
-			} else
-			{
-				bottles[from]=bottles[to]+bottles[from]-capacities[to];
-				bottles[to]=capacities[to];
-			}
+			bottles[to]=Math.min(sum,capacities[to]);
+			bottles[from]=sum-bottles[to];
 		}
 		return bottles;
 	}
