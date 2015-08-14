@@ -80,13 +80,17 @@ public class TaroTest {
 		
 		// input
 		int[] capacities={700000,800000,900000,1000000};
-		int[] bottles={47848,47848,47848,47848};
+		int[] bottles={478478,478478,478478,478478};
 		int[] fromID={2,3,2,0,1};
 		int[] toID={0,1,1,3,2};
 		
 		// output
+		int[] my_result=taro.PourJuice(capacities, bottles, fromID, toID);
 		int[] result={0,156956,900000,856956};
 		
-		Assert.assertArrayEquals(taro.PourJuice(capacities, bottles, fromID, toID), result);
+		System.out.println("my_result: "+Arrays.toString(my_result));
+		System.out.println("result   : "+Arrays.toString(result));
+		
+		Assert.assertArrayEquals(my_result, result);
 	}
 }
