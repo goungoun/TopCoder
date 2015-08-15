@@ -1,39 +1,36 @@
 package com.ganges.topcoder.traversal.versatile;
 
 import java.util.Arrays;
+import java.util.HashMap;
 
+//Anything in common. (It should be something in common)
 public class InviteFriends {
 
 	public int getMaxPeople(String first[], String second[]) {
-		// TODO Auto-generated constructor stub
 		System.out.println("first:"+Arrays.toString(first));
 		System.out.println("seconds:"+Arrays.toString(second));
 
-		int num_of_people=first.length;
+		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		
-		String invited[]=first;
-		invited[0]="--";
+		int cnt=0;
+		int max_value =0;
 		
-		for (int i=0; i<num_of_people ;i++)
+		for (int i=0; i<first.length ;i++)
 		{
-			for (int j=0; j<num_of_people;j++)
-			{
-				if (i!=j && ( first[i].equals(first[j])||first[i].equals(second[j])||
-					second[i].equals(first[j])||second[i].equals(second[j])))
-				{
-					invited[j]="--";
-				}
-			}
+			cnt=hm.get(first[i])==null?1:hm.get(first[i])+1;
+			hm.put(first[i],cnt);
+			max_value=Math.max(max_value, cnt);
 		}
 		
-		System.out.println("Invited:"+Arrays.toString(invited)+"\n");
-		
-		int num_of_invited=0;
-		for(int i=0; i<invited.length;i++)
+		for (int i=0; i<second.length ;i++)
 		{
-			if (invited[i].equals("--")) num_of_invited++;
+			cnt=hm.get(second[i])==null?1:hm.get(second[i])+1;
+			hm.put(second[i],cnt);
+			max_value=Math.max(max_value, cnt);
 		}
 		
-		return num_of_invited;
+		System.out.println("hm"+hm.toString()+"\n");
+		
+		return max_value;
 	}
 }
