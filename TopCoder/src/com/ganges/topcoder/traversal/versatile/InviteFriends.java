@@ -3,7 +3,6 @@ package com.ganges.topcoder.traversal.versatile;
 import java.util.Arrays;
 import java.util.HashMap;
 
-//Anything in common. (It should be something in common)
 public class InviteFriends {
 
 	public int getMaxPeople(String first[], String second[]) {
@@ -12,21 +11,24 @@ public class InviteFriends {
 
 		HashMap<String,Integer> hm = new HashMap<String,Integer>();
 		
-		int cnt=0;
-		int max_value =0;
+		int num_people=first.length;
 		
-		for (int i=0; i<first.length ;i++)
+		for (int i=0; i<num_people ;i++)
 		{
-			cnt=hm.get(first[i])==null?1:hm.get(first[i])+1;
-			hm.put(first[i],cnt);
-			max_value=Math.max(max_value, cnt);
+			hm.put(first[i],0);
+			hm.put(second[i],0);
 		}
 		
-		for (int i=0; i<second.length ;i++)
+		for (int i=0; i<num_people ;i++)
 		{
-			cnt=hm.get(second[i])==null?1:hm.get(second[i])+1;
-			hm.put(second[i],cnt);
-			max_value=Math.max(max_value, cnt);
+			hm.put(first[i],hm.get(first[i])+1);
+			hm.put(second[i],hm.get(second[i])+1);
+		}
+		
+		int max_value =0;
+		for (String key:hm.keySet())
+		{
+			max_value=Math.max(max_value, hm.get(key));
 		}
 		
 		System.out.println("hm"+hm.toString()+"\n");
